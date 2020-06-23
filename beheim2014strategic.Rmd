@@ -1,0 +1,120 @@
+---
+title: "beheim2014strategic"
+output: html_document
+---
+
+Beheim, Bret Alexander, Calvin Thigpen, and Richard McElreath. 2014. “Strategic Social Learning and the Population Dynamics of Human Behavior: The Game of Go.” Evolution and Human Behavior 35 (5). Elsevier: 351–57.
+
+**Abstract**
+
+> Human culture is widely believed to undergo evolution, via mechanisms rooted in the nature of human cognition. A number of theories predict the kinds of human learning strategies, as well as the population dynamics that result from their action. There is little work, however, that quantitatively examines the evidence for these strategies and resulting cultural evolution within human populations. One of the obstacles is the lack of individual-level data with which to link transmission events to larger cultural dynamics. Here, we address this problem with a rich quantitative database from the East Asian board game known as Go. We draw from a large archive of Go games spanning the last six decades of professional play, and **find evidence that the evolutionary dynamics of particular cultural variants are driven by a mix of individual and social learning processes.** **Particular players vary dramatically in their sensitivity to population knowledge**, **which also varies by age** **and nationality.** The dynamic patterns of opening Go moves are consistent with an ancient, ongoing arms race within the game itself.
+
+***
+
+**Results**
+
+  **1. mix of individual and social learning processes drive choice of game strategy (Fourfour/not)**
+  
+  *"find evidence that the evolutionary dynamics of particular cultural variants are driven by a mix of individual and social learning processes"*
+    
+  -- *"For an average player, social knowledge is 1.05 times more important than personal experience in predicting the outcome, but this belies the enormous variation from player to player." p. 354*
+    
+  - Table 1: population use rate > personal use rate by a factor of 1.05
+
+***
+
+```{r, echo = FALSE}
+load("evidence/beheim2014strategic1.robj")
+colnames(r1) <- c("mean", "se")
+r1
+```
+    
+gamma ~ `r round(as.numeric(as.character(r1[2, 1])) / as.numeric(as.character(r1[1, 1])), 2)` x beta
+
+***
+
+  **2. sensitivity to social information varies by player**
+  
+  *"Particular players vary dramatically in their sensitivity to population knowledge, which also varies by age and nationality."*
+    
+  -- *"Partially pooling games of each Black player, we see a varying effects standard deviation of 4.00 for the distribution of player-specific βj. For population knowledge, the standard deviation across player intercepts is even larger, 9.78. Plotting the joint posterior densities of βj and γj for each player j (Fig. 5, left)." p. 354-355*
+    
+  - Figure 5 left
+  
+***
+
+![](./evidence/beheim2014strategic2.png){width=50%}
+
+***
+
+  **3. sensitivity to social information varies by age**
+  
+  *"Particular players vary dramatically in their sensitivity to population knowledge, which also varies by age and nationality."*
+    
+  -- *"Including player age as a varying effect regulating magnitude of β and γ also shows learning heterogeneity over the life course (Fig. 5, right)." p. 355*
+
+  - Figure 5 right
+
+***
+
+![](./evidence/beheim2014strategic3.png){width=50%}
+
+***
+
+  **4. sensitivity to social information varies by nationality**
+  
+  *"Particular players vary dramatically in their sensitivity to population knowledge, which also varies by age and nationality."*
+  
+  -- *"as Table 2 shows, the average of the player-specific estimates for individual and population knowledge differs across country, with South Korean players tending toward greater-than-average sensitivity to social information (positive mean γj). The average Japanese player, in contrast, is better predicted by their individual knowledge (positive mean βj), with the 76 Chinese players nearest to the population intercepts β and γ, on the average." p. 355*
+    
+ - Table 2
+
+***    
+```{r, echo = FALSE}
+load("evidence/beheim2014strategic4.robj")
+r4
+```
+
+***
+
+**Report**
+
+```{r, include = TRUE}
+
+out <- list(
+  key = "beheim2014strategic",
+  n_results = 4,
+  scripted = TRUE,
+  author = "Bret A. Beheim",
+  species = "human",
+  type = "observational",
+  results = list(
+    list(
+      number = 1,
+      reproduced = TRUE,
+      evidence = "table 1",
+      notes = "The result depends on a fitted model, the data may be non-exact but produces close estimates and the same inference"
+    ),
+    list(
+      number = 2,
+      reproduced = TRUE,
+      evidence = "figure 5 left",
+      notes = "The result depends on a fitted model, the plot looks identical, and plotting code was available"
+    ),
+    list(
+      number = 3,
+      reproduced = TRUE,
+      evidence = "figure 5 right",
+      notes = "The result depends on a fitted model, the plot looks identical, and plotting code was available"
+    ),
+    list(
+      number = 4,
+      reproduced = TRUE,
+      evidence = "table 2",
+      notes = "The result depends on a fitted model, the data may be non-exact but produces close estimates and same inference"
+    )
+  ),
+  finalized = TRUE
+)
+
+```
