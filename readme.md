@@ -27,7 +27,7 @@ This is an **example** of the protocol we applied to 40 studies, a subset of our
 
 4. We compiled extracted results into the .Rmd report. We coded individual results as reproduced or not, listing evidence reproduced and adding notes about failure, if applicable. 
 
-We did this for each study in our subsample. We aggregated the individually coded results for each study into a single dataset for analysis (110 results, for 40 papers). We used a unique key (here, "beheim2014strategic") to track studies.  
+We did this for each study in our subsample. We aggregated the individually coded results for each study into a single dataset for analysis (111 results, for 40 papers). We used a unique key (here, "beheim2014strategic") to track studies.  
 
 ## Navigating this repository
 
